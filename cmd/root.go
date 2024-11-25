@@ -80,7 +80,7 @@ func init() {
 func add_iptables_rule(name string, ip_adress string) {
 	log.Printf("started adding %v with the adress %v", name, ip_adress)
 
-	cmd := "sudo iptables -A INPUT -s" + ip_adress + " -j ACCEPT -m comment --comment '" + name + "' && sudo iptables --list"
+	cmd := "sudo iptables -A INPUT -s " + ip_adress + " -j ACCEPT -m comment --comment '" + name + "' && sudo iptables --list"
 	gosh.ShellCommand(cmd)
 	log.Fatal("Added Succesfully")
 
@@ -89,7 +89,7 @@ func add_iptables_rule(name string, ip_adress string) {
 func delete_iptables_rule(name string, ip_adress string) {
 	log.Printf("started deleting %v with the adress %v", name, ip_adress)
 
-	cmd := "sudo iptables -D INPUT -s" + ip_adress + " -j ACCEPT -m comment --comment '" + name + "' && sudo iptables --list"
+	cmd := "sudo iptables -D INPUT -s " + ip_adress + " -j ACCEPT -m comment --comment '" + name + "' && sudo iptables --list"
 	gosh.ShellCommand(cmd)
 	log.Println("Deleted Succesfully")
 
