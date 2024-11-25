@@ -46,11 +46,13 @@ or "disconnect" if you want to delete it
 		if len(args) >= 3 && args[0] != "" && args[2] == "disconnect" {
 			name := args[0]
 			ipadress := args[1]
+
 			if ip_is_valid(ipadress) {
 				delete_iptables_rule(name, ipadress)
 			}
 		} else {
-			log.Print("please check your Input")
+			log.Println("please check your Input")
+			log.Println("input should be ./Scriptsname 'name for connection' 192.168.1.1 connect")
 			log.Fatal("to get help run: ipallowrule -h")
 		}
 	},
