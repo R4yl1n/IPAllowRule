@@ -82,7 +82,7 @@ func add_iptables_rule(name string, ip_adress string) {
 
 	cmd := "sudo iptables -A INPUT -s" + ip_adress + " -j ACCEPT -m comment --comment '" + name + "' && sudo iptables --list"
 	gosh.ShellCommand(cmd)
-	log.Println("Added Succesfully")
+	log.Fatal("Added Succesfully")
 
 }
 
